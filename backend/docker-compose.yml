@@ -1,0 +1,29 @@
+version: '3.3'
+
+services:
+  db:
+    container_name: fastfeetdb
+    image: postgres:11
+    env_file: .env
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - '5432:5432'
+    restart: unless-stopped
+  redis:
+    container_name: fastfeetredis
+    image: redis:alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    hostname: redis
+    networks:
+      - redis-net
+    volumes:
+      - redis-data:/data
+    ports:
+      - '6379:6379'
+volumes:
+  redis-data:
+networks:
+  redis-net:

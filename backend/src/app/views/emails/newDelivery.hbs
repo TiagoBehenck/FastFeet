@@ -1,0 +1,26 @@
+<style>
+  .content {
+    text-align: center;
+    margin: 22px;
+  }
+</style>
+
+<div class="content">
+  <strong>Olá, {{ deliveryman }} </strong>
+
+  <p>Uma encomenda acaba de ser cadastrada e atribuida a você</p>
+
+  <p style='font-weight: bold;'>Informações adicionais: </p>
+  <br />
+  <p><strong>Destinatário: </strong>{{ recipient }}</p>
+  <p><strong>Produto: </strong>{{ product }}</p>
+  <br />
+  <p><strong>Estado: </strong>{{ state }}</p>
+  <p><strong>Cidade: </strong>{{ city }}</p>
+  <p><strong>Rua: </strong>{{ street }}</p>
+  <p><strong>Complemento: </strong>{{ compliment }}</p>
+  <p><strong>CEP: </strong>{{ postal_code }}</p>
+  <br />
+
+  <p>Vá até o ponto de retirada para iniciar a entrega!</p>
+</div>
