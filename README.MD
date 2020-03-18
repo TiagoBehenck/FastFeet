@@ -34,6 +34,8 @@ The project was developed over the GoStack, <a href="https://rocketseat.com.br">
 
 ### :satellite: Backend
 
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=FastFeet%20API&uri=https%3A%2F%2Fgithub.com%2FTiagoBehenck%2FFastFeet%2Fblob%2Fmaster%2Fbackend%2FInsomnia.json)
+
 ```
   // 1 - Git Clone
   git clone https://github.com/TiagoBehenck/FastFeet
