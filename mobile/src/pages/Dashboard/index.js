@@ -70,7 +70,6 @@ export default function Dashboard() {
             ? format(parseISO(delivery?.end_date), 'dd/MM/yyyy')
             : '--/--/--',
         }));
-        console.tron.log(response);
         setDeliveries(data);
       } catch (error) {
         console.log(error);
