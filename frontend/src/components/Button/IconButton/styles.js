@@ -9,7 +9,7 @@ export default styled.button`
 	font-size: 14px;
 	font-weight: bold;
 
-	color: #fff;
+	color: ${props => props.color || '#fff'};
 	border: 0;
 	border-radius: 4px;
 

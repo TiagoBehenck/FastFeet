@@ -9,17 +9,12 @@ export default function IconButton({
 	Icon,
 	action,
 	background,
-	marginLeft,
+	color,
 	...rest
 }) {
 	return (
-		<Button
-			onClick={action}
-			background={background}
-			marginLeft={marginLeft}
-			{...rest}
-		>
-			<Icon color="#fff" size={24} />
+		<Button onClick={action} background={background} color={color} {...rest}>
+			<Icon color={color || '#fff'} size={24} />
 			{title}
 		</Button>
 	);
@@ -30,8 +25,10 @@ IconButton.propTypes = {
 	Icon: PropTypes.func.isRequired,
 	action: PropTypes.func.isRequired,
 	background: PropTypes.string,
+	color: PropTypes.string,
 };
 
 IconButton.defaultProps = {
 	background: '',
+	color: '',
 };

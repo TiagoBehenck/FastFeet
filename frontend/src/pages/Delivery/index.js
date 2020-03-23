@@ -86,7 +86,8 @@ export default function Delivery() {
 					/>
 					<div>
 						<IconButton
-							background={statusColors.PENDENTE.color}
+							color={statusColors.CANCELADA.color}
+							background="none"
 							Icon={MdWarning}
 							title="Encomendas com problemas"
 							action={handleWithProblems}
