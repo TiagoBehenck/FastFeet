@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import PropTypes from 'prop-types';
@@ -15,6 +15,30 @@ import { Container, Content, UnForm } from './styles';
 export default function DeliveryForm({ match }) {
 	const { id } = match.params;
 	const formRef = useRef(null);
+	const [recipients, setRecipients] = useState([]);
+	const [deliveryman, setDeliveryman] = useState([]);
+
+	async function optionRecipient() {
+		const response = await api.get('/recipient');
+
+		const data = response.data.map(recipient => ({
+			value: recipient.id,
+			label: recipient.name,
+		}));
+
+		setRecipients(data);
+	}
+
+	async function optionDeliverymen() {
+		const response = await api.get('/deliveryman');
+
+		const data = response.data.map(deliverymans => ({
+			value: deliverymans.id,
+			label: deliverymans.name,
+		}));
+
+		setDeliveryman(data);
+	}
 
 	useEffect(() => {
 		async function loadInitialData(deliveryId) {
@@ -33,6 +57,8 @@ export default function DeliveryForm({ match }) {
 			}
 		}
 		loadInitialData(id);
+		optionRecipient();
+		optionDeliverymen();
 	}, [id]);
 
 	const customStylesSelectInput = {
@@ -53,7 +79,6 @@ export default function DeliveryForm({ match }) {
 			value: recipient.id,
 			label: recipient.name,
 		}));
-
 		callback(data);
 	}
 
@@ -132,8 +157,9 @@ export default function DeliveryForm({ match }) {
 							label="Destinatário"
 							name="recipient_id"
 							placeholder="Destinatários"
-							noOptionsMessage={() => 'Nenhum destinatário encontrado'}
+							defaultOptions={recipients}
 							loadOptions={loadRecipientOptions}
+							noOptionsMessage={() => 'Nenhum destinatário encontrado'}
 							styles={customStylesSelectInput}
 						/>
 						<AsyncSelectInput
@@ -141,8 +167,9 @@ export default function DeliveryForm({ match }) {
 							label="Entregador"
 							name="deliveryman_id"
 							placeholder="Entregadores"
-							noOptionsMessage={() => 'Nenhum entregador encontrado'}
+							defaultOptions={deliveryman}
 							loadOptions={loadDeliverymenOptions}
+							noOptionsMessage={() => 'Nenhum entregador encontrado'}
 							styles={customStylesSelectInput}
 						/>
 					</section>
