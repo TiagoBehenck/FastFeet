@@ -66,7 +66,7 @@ export default function Delivery() {
 		const response = await api.get('/problem', {
 			params: {
 				page,
-				list: true,
+				problem: true,
 			},
 		});
 
