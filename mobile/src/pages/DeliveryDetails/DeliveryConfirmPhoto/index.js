@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Platform } from 'react-native';
+import { useSelector } from 'react-redux';
+
+import { useRoute } from '@react-navigation/native';
 
 import api from '~/services/api';
 
@@ -15,6 +17,9 @@ import {
 export default function DeliveryConfirmPhoto() {
   // eslint-disable-next-line prefer-const
   let cameraRef = useRef(null);
+  const auth = useSelector(state => state.auth);
+  const route = useRoute();
+  const { id } = route.params;
   const [pictureUri, setPictureUri] = useState('');
 
   async function handleSubmit() {
@@ -25,13 +30,19 @@ export default function DeliveryConfirmPhoto() {
       name: 'assignature.jpg',
     });
 
-    await api.post('files', dataFile);
+    const response = await api.patch(
+      `/deliveryman/${auth.id}/deliveries/${id}/deliver`,
+      dataFile
+    );
+
+    console.tron.log(response);
   }
 
   async function handletakePicture() {
     if (cameraRef) {
       const options = { quality: 0.5, base64: true };
       const data = await cameraRef.current.takePictureAsync(options);
+      console.tron.log(data);
       await setPictureUri(data.uri);
       await handleSubmit();
     }

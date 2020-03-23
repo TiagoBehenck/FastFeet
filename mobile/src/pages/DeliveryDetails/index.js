@@ -131,7 +131,7 @@ export default function DeliveryDetails() {
           ) : (
             <Option
               disabled={delivery.status === 'ENTREGUE'}
-              onPress={() => navigation.navigate('Photo')}
+              onPress={() => navigation.navigate('Photo', { id: delivery.id })}
             >
               <Icon name="check-circle" color={colors.primary} size={20} />
               <OptionTitle>Confirmar Entrega</OptionTitle>
