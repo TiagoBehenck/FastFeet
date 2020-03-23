@@ -11,7 +11,7 @@ import File from '../models/File';
 
 class ProblemsAdminController {
   async index(req, res) {
-    const { page = 1, list = false } = req.query;
+    const { page = 1, problem = false } = req.query;
 
     const problems = await DeliveryProblem.findAll({
       limit: 5,
@@ -20,7 +20,7 @@ class ProblemsAdminController {
 
     const idsWithProblems = problems.map(p => p.delivery_id);
 
-    const withProblems = list
+    const withProblems = problem
       ? await Delivery.findAll({
           where: {
             id: {
