@@ -66,8 +66,6 @@ routes.post(
 
 routes.get('/deliveryman/:id', DeliverymanController.show); // Login APP
 
-routes.post('/files', upload.single('file'), FileController.store);
-
 routes.use(authMiddleware);
 
 routes.post('/users', validateUser.store, UserController.store);
@@ -108,5 +106,7 @@ routes.patch(
   '/problem/:problem_id/cancel-delivery',
   ProblemAdminController.update
 );
+
+routes.post('/files', upload.single('file'), FileController.store);
 
 export default routes;

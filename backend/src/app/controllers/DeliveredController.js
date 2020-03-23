@@ -1,6 +1,5 @@
 import Deliveryman from '../models/Deliveryman';
 import Delivery from '../models/Delivery';
-// import Recipient from '../models/Recipient';
 import File from '../models/File';
 
 class DeliveredController {
@@ -45,42 +44,6 @@ class DeliveredController {
       signature_id: file.id,
       status: 'ENTREGUE',
     });
-
-    // await delivery.reload({
-    //   attributes: ['id', 'product', 'start_date', 'canceled_at', 'end_date'],
-    //   include: [
-    //     {
-    //       model: Deliveryman,
-    //       as: 'deliveryman',
-    //       attributes: ['name', 'email'],
-    //       include: [
-    //         {
-    //           model: File,
-    //           as: 'avatar',
-    //           attributes: ['name', 'path', 'url'],
-    //         },
-    //       ],
-    //     },
-    //     {
-    //       model: Recipient,
-    //       as: 'recipient',
-    //       attributes: [
-    //         'name',
-    //         'street',
-    //         'number',
-    //         'compliment',
-    //         'state',
-    //         'city',
-    //         'postal_code',
-    //       ],
-    //     },
-    //     {
-    //       model: File,
-    //       as: 'signature',
-    //       attributes: ['url', 'name', 'path'],
-    //     },
-    //   ],
-    // });
 
     return res.json(delivery);
   }
