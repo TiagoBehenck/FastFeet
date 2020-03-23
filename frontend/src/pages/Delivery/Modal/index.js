@@ -7,8 +7,6 @@ import Modal from '~/components/Modal';
 import { Container } from './styles';
 
 export default function DeliveryModal({ data }) {
-	console.log(data);
-
 	return (
 		<Modal>
 			<Container>

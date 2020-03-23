@@ -18,8 +18,6 @@ export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state?.user?.profile);
 
-  console.tron.log(profile?.avatar?.url);
-
   function handleLogout() {
     dispatch(signOut());
   }
