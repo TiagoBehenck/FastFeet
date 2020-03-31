@@ -14,7 +14,7 @@ Order and delivery management
 
 <p align="center">
 
-  <a href="https://github.com/tiagobehnck">
+  <a href="https://github.com/tiagobehenck">
     <img alt="Made by Tiago" src="https://img.shields.io/badge/made%20by-Tiago Behenck-%237d40e7">
   </a>
 
@@ -86,6 +86,7 @@ The project was developed over the GoStack, <a href="https://rocketseat.com.br">
   cp .env.example .env
 
   // 3 - Installing the project (Be sure to have installed the react native cli)
+  yarn install
 
    // If you're going to emulate with android - run this command
    react-native run-android
