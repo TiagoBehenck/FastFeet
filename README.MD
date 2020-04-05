@@ -18,6 +18,12 @@ Order and delivery management
     <img alt="Made by Tiago" src="https://img.shields.io/badge/made%20by-Tiago Behenck-%237d40e7">
   </a>
 
+  <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/TiagoBehenck/FastFeet?color=%237d40e7">
+ 
+  <img alt="Project top programing language" src="https://img.shields.io/github/languages/top/TiagoBehenck/FastFeet?color=%237d40e7">
+
+   <img alt="Languagues" src="https://img.shields.io/github/languages/count/TiagoBehenck/FastFeet?color=%237d40e7">
+
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/TiagoBehenck/FastFeet?color=%237d40e7">
 
   <img alt="GitHub stars" src="https://img.shields.io/github/stars/TiagoBehenck/FastFeet?color=%237d40e7" />
@@ -45,6 +51,11 @@ The project was developed over the GoStack, <a href="https://rocketseat.com.br">
 
   // 3 - Run the services (Be sure to have docker and docker-compose installed)
   docker-compose up -d
+
+    // If dont start de containers, run manually
+    docker run --name fastfeetredis -p 6379:6379 -d -t redis:alpine
+    docker run --name fastfeetdatabase -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres:11
+
 
   // 4 - Once the services are running, its time to install the dependencies
   yarn install
